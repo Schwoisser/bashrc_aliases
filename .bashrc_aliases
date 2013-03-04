@@ -1,0 +1,33 @@
+#load private aliases if exists
+if [ -f ~/.bash_private_aliases ]; then
+    . ~/.bash_private_aliases
+fi
+
+#My aliases
+
+alias ..='cd ..'
+
+alias reload='source ~/.bashrc'
+
+#apt-get/aptitude helpers
+alias search='aptitude search'
+alias install='sudo aptitude install'
+alias upgrade='aptitude update && sudo aptitude upgrade'
+
+
+#Git helper
+
+alias pull='git pull'
+alias push='git push origin'
+alias stat='git status'
+alias pullall='ui && pull && loox && pull'
+alias commit='git commit -a -m'
+alias f='ls-files | grep -i'
+#alias gra='!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f'
+
+#Complex git helper
+
+alias log='git log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate'
+alias lds='git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short'
+alias ld='git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative'
+alias dlc='git diff --cached HEAD^'
